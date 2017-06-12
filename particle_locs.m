@@ -15,8 +15,10 @@ function [ locs ] = particle_locs( Data1, varargin )
 % OUTPUT:   locs: cell array of particle localizations in each frame.
 [~,~,T] = size(Data1);
 locs = cell(1,T);
+wb = waitbar(0,['Boosting SNR and localizing particles for ',num2str(T),' frames']);
 for t = 1:T
     im = SNR_booster(Data1(:,:,t));
     locs{t} = particle_identify(im,varargin);
+    waitbar(t/T,wb)
 end
-
+close(wb)
