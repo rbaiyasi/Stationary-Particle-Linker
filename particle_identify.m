@@ -7,10 +7,10 @@ function params = particle_identify(im, varargin)
 %                   For a good image local threshold is not necessary
 %               Gauss_width: estimated Gaussian standard deviation. This is
 %                   used to determine the size of the fitting region.
-%               wide2: Not entirely sure what this is. "The wide threshold"
+%               wide2: Not entirely sure what this is. "The wide threshold
 %                   wide and wide2 are different. Together they can decide 
 %                   how many neighbors to include. More detail is discussed
-%                   in Fig 6 in the paper.
+%                   in Fig 6 in the paper."
 %% initial conditions & input parameters
 defargs = { true , 3 , 2 }; % { local_thd , Gauss_width , wide2 }
 if ~isempty(varargin)

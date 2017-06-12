@@ -8,10 +8,10 @@ function [ locs ] = particle_locs( Data1, varargin )
 %                   For a good image local threshold is not necessary
 %               Gauss_width: estimated Gaussian standard deviation. This is
 %                   used to determine the size of the fitting region.
-%               wide2: Not entirely sure what this is. "The wide threshold"
+%               wide2: Not entirely sure what this is. "The wide threshold
 %                   wide and wide2 are different. Together they can decide 
 %                   how many neighbors to include. More detail is discussed
-%                   in Fig 6 in the paper.
+%                   in Fig 6 in the paper."
 % OUTPUT:   locs: cell array of particle localizations in each frame.
 [~,~,T] = size(Data1);
 locs = cell(1,T);
