@@ -14,7 +14,7 @@ function params = particle_identify(im, varargin)
 %% initial conditions & input parameters
 defargs = { true , 3 , 2 }; % { local_thd , Gauss_width , wide2 }
 if ~isempty(varargin)
-    arginds = find(cellfun(@isempty,varargin));
+    arginds = find(~cellfun(@isempty,varargin));
     defargs(arginds) = varargin(arginds);
 end
 [local_thd, Gauss_width, wide2] = defargs{:};
@@ -101,6 +101,7 @@ max_map = max_map .* (im - bg);
 % We use Parthasarathy's radial symmetry method here because it is fast and
 % accurate. Detail see nmeth.2071
 match_r = 2 * Gauss_width; % the size of fitting region is match_r*2+1
+% disp(['match_r = ',num2str(match_r)]);
 if isnan(sum(max_map(:))) || isinf(sum(max_map(:)))
     params = [];
     return
